@@ -1,6 +1,6 @@
 from PyQt6.QtCore import QSize, pyqtSlot
 from PyQt6.QtGui import QIcon
-from PyQt6.QtWidgets import QWidget, QPushButton, QGridLayout, QLineEdit
+from PyQt6.QtWidgets import QWidget, QPushButton, QGridLayout, QLineEdit, QTextBrowser
 
 
 class CentralWidget(QWidget):
@@ -24,12 +24,16 @@ class CentralWidget(QWidget):
         push_button_xyz.released.connect(self.add_xyz)
         push_button_xyz.pressed.connect(self.temp)
 
+        self.text_browser = QTextBrowser()
+
         self.line_edit = QLineEdit()
+        self.line_edit.textChanged.connect(self.text_browser.append)
 
         layout = QGridLayout()
         layout.addWidget(push_button_abc, 1, 1)
         layout.addWidget(push_button_xyz, 1, 2)
         layout.addWidget(self.line_edit, 2, 1, 1, 2)
+        layout.addWidget(self.text_browser, 3, 1, 2, 2)
 
         self.setLayout(layout)
 
