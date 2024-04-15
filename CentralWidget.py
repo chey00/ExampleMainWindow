@@ -33,14 +33,14 @@ class CentralWidget(QWidget):
 
         self.setLayout(layout)
 
-    @pyqtSlot
+    @pyqtSlot()
     def add_abc(self):
         self.line_edit.setText("abc")
 
-    @pyqtSlot
+    @pyqtSlot()
     def add_xyz(self):
         self.line_edit.setText("xyz")
 
-    @pyqtSlot
+    @pyqtSlot()
     def temp(self):
         self.line_edit.setText("Button ist gedrückt...")
