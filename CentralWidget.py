@@ -1,11 +1,15 @@
-from PyQt6.QtCore import QSize, pyqtSlot
+from PyQt6.QtCore import QSize, pyqtSlot, pyqtSignal
 from PyQt6.QtGui import QIcon
 from PyQt6.QtWidgets import QWidget, QPushButton, QGridLayout, QLineEdit, QTextBrowser
 
 
 class CentralWidget(QWidget):
+    set_value = pyqtSignal(int)
+
     def __init__(self, parent=None):
         super(CentralWidget, self).__init__(parent)
+
+        self.counter = 0
 
         push_button_abc = QPushButton()
         push_button_abc.setText("Schreibe abc")
@@ -40,6 +44,10 @@ class CentralWidget(QWidget):
     @pyqtSlot()
     def add_abc(self):
         self.line_edit.setText("abc")
+
+        self.counter += 1
+        self.set_value.emit(self.counter)
+
 
     @pyqtSlot()
     def add_xyz(self):
