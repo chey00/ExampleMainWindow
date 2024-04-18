@@ -1,5 +1,5 @@
 from PyQt6.QtCore import pyqtSlot
-from PyQt6.QtWidgets import QMainWindow, QStatusBar, QHBoxLayout, QProgressBar
+from PyQt6.QtWidgets import QMainWindow, QStatusBar, QProgressBar
 
 from CentralWidget import CentralWidget
 
